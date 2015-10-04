@@ -2,6 +2,8 @@ package demo.prem.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -23,7 +25,8 @@ public class Patient {
 	private String lastName;
 	@Column(name = "mrn")
 	private String mrn;
-	@Column(name = "gender")
+	@Column(name = "gender" )
+	@Enumerated(EnumType.STRING)
 	private GenderType gender;
 	@Column(name = "dob")
 	private Date dateOfBirth;

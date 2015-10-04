@@ -24,7 +24,7 @@ public class Account {
 	private String description;
 	
 	@Column(name = "type")
-	//@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING)
 	private AccountType accountType;
 
 	public Long getId() {
