@@ -30,3 +30,8 @@ dependencies {
 	compile('org.eclipse.jetty:jetty-server:9.3.2.v20150730')
 	compile('org.eclipse.jetty:jetty-webapp:9.3.2.v20150730')
 }
+
+task copyToLib(type: Copy) {
+    into "$rootDir/lib"
+    from configurations.runtime
+}
