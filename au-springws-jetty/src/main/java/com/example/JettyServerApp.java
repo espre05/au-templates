@@ -11,7 +11,7 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 
 import com.example.config.AppConfig;
 
-public class Starter {
+public class JettyServerApp {
 	public static void main( final String[] args ) throws Exception {
 		Server server = new Server( 8080 );
 		        

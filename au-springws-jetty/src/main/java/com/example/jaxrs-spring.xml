@@ -9,11 +9,12 @@
          http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
  
      <import resource="classpath:META-INF/cxf/cxf.xml" />
+     <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
       
      <!--
          Discover all root resources and providers in packages starting from "a.b.c"
      -->
-     <jaxrs:server id="jaxServer" address="/customers"/>
-     <context:component-scan base-package="com.example"/>
+     <jaxrs:server id="jaxServer" address="/"/>
+     <context:component-scan base-package="com.example.services"/>
  
  </beans>

@@ -3,6 +3,7 @@ package com.example.services;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -14,13 +15,14 @@ import com.example.model.Person;
 
 @Service
 public class PeopleService {
-	private final ConcurrentMap< String, Person > persons = new ConcurrentHashMap< String, Person >(); 
+	private final ConcurrentMap< String, Person > persons = new ConcurrentHashMap< String, Person >();
 	
-	public Collection< Person > getPeople( int page, int pageSize ) {
-		if(persons.size() ==0){
-			initMock();
-		}
-		final Collection< Person > peopleSlice = new ArrayList< Person >( pageSize );
+	public PeopleService(){
+		initMock();
+	}
+	
+	public List< Person > getPeople( int page, int pageSize ) {
+		final List< Person > peopleSlice = new ArrayList< Person >( pageSize );
 		
         final Iterator< Person > iterator = persons.values().iterator();
         for( int i = 0; peopleSlice.size() < pageSize && iterator.hasNext(); ) {
@@ -36,7 +38,7 @@ public class PeopleService {
 		for (int i = 0; i < 10; i++) {
 			Person pers =  new Person("Jane"+(i+1),"Doe");
 			pers.setEmail("email"+(i+1));
-			persons.putIfAbsent(pers.getFirstName(), pers);
+			persons.putIfAbsent(pers.getEmail(), pers);
 		}
 		
 	}

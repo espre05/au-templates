@@ -32,7 +32,7 @@ public class PeopleRestService {
 	}
 
 	@Produces( { MediaType.APPLICATION_JSON } )
-	@Path( "/{email}" )
+	@Path( "/getbyemail/{email}" )
 	@GET
 	public Person getPeople( @PathParam( "email" ) final String email ) {
 		return peopleService.getByEmail( email );
@@ -50,7 +50,7 @@ public class PeopleRestService {
 	}
 	
 	@Produces( { MediaType.APPLICATION_JSON  } )
-	@Path( "/{email}" )
+	@Path( "/updatebyemail/{email}" )
 	@PUT
 	public Person updatePerson(			
 			@PathParam( "email" ) final String email, 
@@ -70,7 +70,7 @@ public class PeopleRestService {
 		return person; 				
 	}
 	
-	@Path( "/{email}" )
+	@Path( "/deletebyemail/{email}" )
 	@DELETE
 	public Response deletePerson( @PathParam( "email" ) final String email ) {
 		peopleService.removePerson( email );
